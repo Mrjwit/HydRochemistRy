@@ -1,0 +1,28 @@
+Package: HydRochemistRy
+Type: Package
+Title: Package to analyze hydrochemical data
+Version: 0.1.0
+Author: Mike Wit
+Maintainer: Mike Wit <m.r.j.wit@tudelft.nl> <mike.r.j.wit@gmail.com> 
+Description: Function to analyze hydrochemical data, including:
+    checking and validating lab results;
+    calculating ionic balance;
+    plotting piper diagrams;
+    more to come in the future.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+RoxygenNote: 7.2.3
+Imports: 
+    dplyr,
+    ggplot2,
+    moments,
+    tidyr
+Depends: 
+    R (>= 2.10)
+VignetteBuilder: knitr

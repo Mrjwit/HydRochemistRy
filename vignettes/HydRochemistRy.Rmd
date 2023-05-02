@@ -1,0 +1,69 @@
+---
+title: "Manual HydRochemistRy"
+author: "Mike Wit"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Manual HydRochemistRy}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, echo=F}
+library(HydRochemistRy)
+library(tidyverse)
+```
+
+## Introduction
+The HydRochemistRy R package contains functions to help check and analyze hydrochemical data with a focus on groundwater quality. 
+Functionalities include:
+
+- checking and validating lab results;
+- calculating electrical balance (EB) for water samples;
+- plotting piper diagram for water types;
+- ... more to come in the future!
+
+### Data structure
+Example data is added to the package to show the function functionalities. In order for the functions to work on other data, it is necessary that the same data structure is followed as below:
+
+```{r data}
+str(example_data)
+knitr::kable(head(example_data))
+```
+
+## Examples
+The electrical balance (EB) of lab analysis is calculated using the `meql()` function. This also includes a final `check` column that indicates whether the EB is larger than 10%. 
+
+```{r}
+d <- meql(example_data) %>%
+  filter(check == "error")
+knitr::kable(d)
+```
+
+Another feature is creating a table overview with descriptive statistics per measured parameter:
+
+```{r}
+d <- DescriptiveStatistics(example_data)
+knitr::kable(d)
+```
+
+The function for creating piper diagrams that display the water type per water sample is still under construction. 
+Different helper columns can be added in the future to display different characteristics besides sample type, e.g. geology, land use, years, etc. 
+A sneak preview is displayed below:
+
+```{r fig.width = 6, fig.height = 6}
+PiperPlot(example_data)
+
+```
+
+
+
+
+
