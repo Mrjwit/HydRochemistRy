@@ -18,7 +18,7 @@ Functionalities include:
 You can install the development version of HydRochemistRy like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+library(HydRochemisRy)
 ```
 
 ## Example
